@@ -1,8 +1,8 @@
 const fs = require('fs');
 const should = require('should');
-const nightmare = require('nightmare')
+const nightmare = require('nightmare');
 
-const webp_supprt = require('../index.js');
+// const webp_supprt = require('../index.js');
 
 describe('webp-support', () => {
 	it("Should return that there is no WebP support", (done) => {
