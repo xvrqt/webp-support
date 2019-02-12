@@ -1,5 +1,7 @@
 'use strict';
 
+import test_image from './test_pixel.webp';
+
 /* Magic Vars */
 const package_name = 'gulp-inject-inline';
 
@@ -7,8 +9,11 @@ const package_name = 'gulp-inject-inline';
  * instead. Elements with the "webp_q" class will have that class removed
  * and have the class "webp" or "no-webp" applied depending on browser support.
 */
-export default = (update, identifier) => {
-    const path = "test_pixel.webp";
+export default = (update, identifier, test_image_path) => {
+    const path = test_image;
+    if(typeof(path) != undefined) {
+        path = test_image_path;
+    }
     
     /* Sanitize inputs */
     if(update === undefined) { update = false; }

@@ -25,6 +25,7 @@
   "devDependencies": {
     "fs": "0.0.1-security",
     "mocha": "^5.2.0",
+    "nightmare": "^3.0.1",
     "npm-cli-login": "^0.1.1",
     "should": "^13.2.3"
   }
