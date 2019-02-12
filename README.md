@@ -22,132 +22,17 @@ If you are not using webpack, parcel or some other web asset bundler you will mo
 
 `index.js`
 ```javascript
-import { webpTest } from "webp-test";
+import { webpSupport } from './webp_support';
 
+webpSupport().then((support_present) => {
+	if(support_present) {
+		console.log(`This browser supports WebP images`);
+	} else {
+		console.log(`This browser does not support WebP images.`);
+	}
+})
 
-```
-
-`src/components/myComponent.js`
-```javascript
-export class MyComponent extends HTMLElement {
-    private shadow: DocumentFragment;
-
-    /* CSS */
-    private static styles: string = `
-        [ inject-inline myComponent.css ]
-    `;
-
-    constructor() {
-        super();
-        /* Attach shadow root */
-        this.shadow = this.attachShadow({mode: 'open'});
-
-        /* Add the styling to the page */
-        const style = document.createElement('style');
-        style.innerHTML = MyComponent.styles;
-        this.shadow.appendChild(style);
-    }
-}
-
-window.customElements.define("my-component", MyComponent);
-```
-
-`src/components/myComponent.css`
-```css
-:host {
-	width: 150px;
-	height: 200px;
-	display: block;
-}
-
-h1 {
-	color: #FFF;
-}
-```
-
-Would become:
-`dist/components/myComponent.js`
-```javascript
-export class MyComponent extends HTMLElement {
-    private shadow: DocumentFragment;
-
-    /* CSS */
-    private static styles: string = `
-        :host {
-	width: 150px;
-	height: 200px;
-	display: block;
-}
-
-h1 {
-	color: #FFF;
-}
-    `;
-
-    constructor() {
-        super();
-        /* Attach shadow root */
-        this.shadow = this.attachShadow({mode: 'open'});
-
-        /* Add the styling to the page */
-        const style = document.createElement('style');
-        style.innerHTML = MyComponent.styles;
-        this.shadow.appendChild(style);
-    }
-}
-
-window.customElements.define("my-component", MyComponent);
 ```
 
 ## GitLab
-Submit issues, request features, check out the repo here: [https://git.xvrqt.com/amy/inject-inline-npm-module](https://git.xvrqt.com/amy/inject-inline-npm-module)
-
-## White Space
-It will not preserve whitespace.
-
-`index.html`
-```html
-<html>
-	<head>
-		<style>
-			[ inject-inline mystyles.css ]
-		</style>
-	</head>
-	<body>
-		<h1>Hello girls!</h1>
-	</body>
-</html>
-```
-
-`mystyles.css`
-```css
-body {
-	background-color: #333;
-}
-
-h1 {
-	color: #EEE;
-}
-```
-
-Will produce:
-
-`output.html`
-```html
-<html>
-	<head>
-		<style>
-			body {
-	background-color: #333;
-}
-
-h1 {
-	color: #EEE;
-}
-		</style>
-	</head>
-	<body>
-		<h1>Hello girls!</h1>
-	</body>
-</html>
-```
+Submit issues, request features, check out the repo here: [https://git.xvrqt.com/amy/webp-support](https://git.xvrqt.com/amy/webp-support)
