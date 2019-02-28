@@ -1,6 +1,6 @@
 {
   "name": "webp-image-support",
-  "version": "0.5.1",
+  "version": "0.6.0",
   "description": "Test if a browser supports the WebP - optionally update indicated elements with a class to indicate if WebP support is present.",
   "main": "index.js",
   "scripts": {
