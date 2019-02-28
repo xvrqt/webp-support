@@ -5,12 +5,11 @@ stages:
 
 image: node:11.4
 
-cache:
-  paths:
-    - node_modules/
-
 build:
   stage: build
+  cache:
+    paths:
+      - node_modules/
   tags:
     - docker
   script:
@@ -18,6 +17,8 @@ build:
 
 test:
   stage: test
+  dependencies:
+    - build
   tags:
     - docker
   script:
