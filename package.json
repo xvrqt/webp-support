@@ -4,7 +4,7 @@
   "description": "Test if a browser supports the WebP - optionally update indicated elements with a class to indicate if WebP support is present.",
   "main": "index.js",
   "scripts": {
-    "test": "karma start --single-run --browsers ChromeHeadless karma.conf.js",
+    "test": "karma start --single-run --browsers ChromeCustom karma.conf.js",
     "publish": "npm-cli-login && npm publish"
   },
   "repository": {
@@ -25,6 +25,7 @@
   "devDependencies": {
     "chai": "^4.2.0",
     "fs": "0.0.1-security",
+    "is-docker": "^1.1.0",
     "karma": "^4.0.0",
     "karma-chai": "^0.1.0",
     "karma-chrome-launcher": "^2.2.0",

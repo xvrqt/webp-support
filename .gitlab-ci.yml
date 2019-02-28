@@ -18,6 +18,8 @@ build:
 
 test:
   stage: test
+  image:
+    dockerfile: Dockerfile
   dependencies:
     - build
   tags:

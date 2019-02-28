@@ -1,3 +1,7 @@
+const isDocker = require('is-docker')();
+
+console.log(isDocker);
+
 module.exports = function(config) {
   config.set({
     frameworks: ['mocha', 'chai'],
@@ -10,10 +14,16 @@ module.exports = function(config) {
     preprocessors: {
         'test/**/*.js': ['webpack']
     },
+    customLaunchers: {
+      ChromeCustom: {
+        base: 'ChromeHeadless',
+        flags: isDocker ? ['--no-sandbox'] : []
+      }
+    },
     port: 9876,
     colors: true,
     logLevel: config.LOG_INFO,
-    browsers: ['ChromeHeadless'],
+    browsers: ['ChromeCustom'],
     autoWatch: false,
     concurrency: Infinity,
     plugins:[
