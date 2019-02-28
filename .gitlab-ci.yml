@@ -18,15 +18,13 @@ build:
 
 test:
   stage: test
-  image:
-    dockerfile: Dockerfile
   dependencies:
     - build
   tags:
-    - docker
+    - shell
   script:
-    - npm install
-    - npm run test
+    - docker build --no-cache -t webpsupport_test .
+    - docker run webpsupport_test
       
 push to npm:
   stage: push

@@ -1,7 +1,5 @@
 const isDocker = require('is-docker')();
 
-console.log(isDocker);
-
 module.exports = function(config) {
   config.set({
     frameworks: ['mocha', 'chai'],
